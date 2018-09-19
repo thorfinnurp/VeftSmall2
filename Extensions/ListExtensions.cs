@@ -3,18 +3,18 @@ using System.Linq;
 using template.Models;
 using template.Extensions;
 
-namespace template.Extensions.ListExtensions
+namespace template.Extensions
 {
     public static class ListExtensions
     {
-        public static List<ModelDTO> ToLightWeight(this List<Model> list, string language = "en-US") => list.Select(item => new ModelDTO
+        public static List<ModelDto> ToLightWeight(this List<Model> list, string language = "en-US") => list.Select(item => new ModelDto
         {
             Id = item.Id,
             Name = language == "en-US" ? item.Name : item.NameDE,
             Race = language == "en-US" ? item.Race : item.RaceDE,
             Price = item.Price
         }).ToList();
-        public static List<ModelDetailsDTO> ToDetails(this List<Model> list, string language = "en-US") => list.Select(item => new ModelDetailsDTO
+        public static List<ModelsDetailsDTO> ToDetails(this List<Model> list, string language = "en-US") => list.Select(item => new ModelsDetailsDTO 
         {
             Id = item.Id,
             Name = language == "en-US" ? item.Name : item.NameDE,

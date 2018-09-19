@@ -2,3 +2,10 @@ D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignme
 D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.csproj.CoreCompileInputs.cache
 D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfoInputs.cache
 D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfo.cs
+D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.deps.json
+D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.json
+D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.dev.json
+D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.dll
+D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.pdb
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.dll
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.pdb

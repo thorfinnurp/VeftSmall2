@@ -45,7 +45,7 @@ namespace template.Controllers
                             .Where( model => model.Id == id )
                             .Single();
 
-            ModelsDetailsDTO ret = new ModelsDetailsDTO(thisModel);
+            ModelsDetailsDTO ret = thisModel;
                                 
             return ret;
         } 
