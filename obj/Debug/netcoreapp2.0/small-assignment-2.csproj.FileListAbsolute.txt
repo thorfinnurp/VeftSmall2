@@ -1,0 +1,4 @@
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.csprojAssemblyReference.cache
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.csproj.CoreCompileInputs.cache
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfoInputs.cache
+D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfo.cs
