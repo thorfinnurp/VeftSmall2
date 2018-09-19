@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using template.Models;
+using template.Extensions;
 
-namespace template.Extensions
+namespace template.Extensions.ListExtensions
 {
     public static class ListExtensions
     {

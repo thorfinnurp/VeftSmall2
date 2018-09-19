@@ -11,5 +11,18 @@ namespace template.Models
         public string DifficultyLevel { get; set; }
         public int YearOfRelease { get; set; }
         public string ImageUrl { get; set; }
+
+        public ModelsDetailsDTO(Model model) 
+        {
+            Id = model.Id; 
+            Name = model.Name; 
+            Race = model.Race; 
+            Price = model.Price; 
+            Description = model.Description; 
+            Rarity = model.Rarity; 
+            DifficultyLevel = model.DifficultyLevel; 
+            YearOfRelease = model.YearOfRelease; 
+            ImageUrl = model.ImageUrl; 
+        }
     }
 }
