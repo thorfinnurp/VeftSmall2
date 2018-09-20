@@ -18,6 +18,8 @@ namespace template.Controllers
         [Route("")]
         public IActionResult GetAllModels([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
+            string languageFromHeader = Request.Headers["Accept-Language"];
+
             Envelope<ModelDto> envelope = new Envelope<ModelDto>(); 
 
             int startId = 1 + (pageNumber-1) *  pageSize;
@@ -29,7 +31,7 @@ namespace template.Controllers
                             && model.Id <= endId 
                 ).ToList();
 
-            List<ModelDto> dtoList = ListExtensions.ToLightWeight(pageItems, "en-US");
+            List<ModelDto> dtoList = ListExtensions.ToLightWeight(pageItems, languageFromHeader);
             
             /*List<ModelDto> dtoList = new List<ModelDto>();
             foreach(Model value in pageItems) 
@@ -50,10 +52,12 @@ namespace template.Controllers
         [Route("{id:int}")] 
         public IActionResult GetModelById( int id)
         {
+            string languageFromHeader = Request.Headers["Accept-Language"];
+            
             List<Model> detailItems = _db 
                             .Where( model => model.Id == id )
                             .ToList();
-            List<ModelsDetailsDTO> dtoList = ListExtensions.ToDetails(detailItems, "en-US");
+            List<ModelsDetailsDTO> dtoList = ListExtensions.ToDetails(detailItems, languageFromHeader);
             ModelsDetailsDTO ret = dtoList[0];
 
             //Kastar exception ef id finnst ekki (>10). Viljum við höndla það?
