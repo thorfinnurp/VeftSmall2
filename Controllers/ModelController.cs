@@ -4,6 +4,7 @@ using template.Models;
 using template.Data;
 using System.Linq;
 using System;
+using template.Extensions;
 
 namespace template.Controllers
 {
@@ -22,17 +23,20 @@ namespace template.Controllers
             int startId = 1 + (pageNumber-1) *  pageSize;
             int endId = startId + pageSize -1;
             
-            IEnumerable<Model> pageItems = _db
+            List<Model> pageItems = _db
                 .Where( 
                     model   => startId <= model.Id 
                             && model.Id <= endId 
-                );
+                ).ToList();
 
-            List<ModelDto> dtoList = new List<ModelDto>();
+            List<ModelDto> dtoList = ListExtensions.ToLightWeight(pageItems, "en-US");
+            
+            /*List<ModelDto> dtoList = new List<ModelDto>();
             foreach(Model value in pageItems) 
             {
                 dtoList.Add(new ModelDto() {Id = value.Id, Name = value.Name, Race = value.Race, Price = value.Price });
             } 
+            */
             envelope.Items = dtoList;
 
             envelope.PageNumber = pageNumber;
@@ -46,13 +50,14 @@ namespace template.Controllers
         [Route("{id:int}")] 
         public IActionResult GetModelById( int id)
         {
-            Model detailItem = _db 
+            List<Model> detailItems = _db 
                             .Where( model => model.Id == id )
-                            .Single();
-
-            ModelsDetailsDTO ret = detailItem;
+                            .ToList();
+            List<ModelsDetailsDTO> dtoList = ListExtensions.ToDetails(detailItems, "en-US");
+            ModelsDetailsDTO ret = dtoList[0];
 
             //Kastar exception ef id finnst ekki (>10). Viljum við höndla það?
+
             return Ok(ret);
         } 
 
