@@ -33,12 +33,6 @@ namespace template.Controllers
 
             List<ModelDto> dtoList = ListExtensions.ToLightWeight(pageItems, languageFromHeader);
             
-            /*List<ModelDto> dtoList = new List<ModelDto>();
-            foreach(Model value in pageItems) 
-            {
-                dtoList.Add(new ModelDto() {Id = value.Id, Name = value.Name, Race = value.Race, Price = value.Price });
-            } 
-            */
             envelope.Items = dtoList;
 
             envelope.PageNumber = pageNumber;
@@ -60,7 +54,8 @@ namespace template.Controllers
             List<ModelsDetailsDTO> dtoList = ListExtensions.ToDetails(detailItems, languageFromHeader);
             ModelsDetailsDTO ret = dtoList[0];
 
-            //Kastar exception ef id finnst ekki (>10). Viljum við höndla það?
+            string selfString = "models/" + ret.Id;
+            ret.Links.Append(new KeyValuePair<string, object>("_self", selfString) );
 
             return Ok(ret);
         } 
