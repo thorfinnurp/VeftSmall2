@@ -6,25 +6,26 @@ using System.Linq;
 
 namespace template.Controllers
 {
+    [Route("api/model")]  
+    //[ApiController]
     public class ModelController : Controller
     {
 
         private readonly Model _model;
 
         private List<Model> _db = DataContext.Models;
-        public ModelController(Model model)
-        {
-            _model = model;
-        }
-        public Envelope<ModelDto> GetAllModels(int pageNumber = 1, int pageSize = 10)
+        
+        [HttpGet] 
+        [Route("")]
+        public Envelope<ModelDto> /*IActionResult*/  GetAllModels(int pageNumber = 1, int pageSize = 10)
         {
             Envelope<ModelDto> ret = new Envelope<ModelDto>(); 
 
             ret.PageNumber = pageNumber;
             ret.PageSize = pageSize;
 
-            int startId = pageNumber * pageSize;
-            int endId = startId + pageSize;
+            int startId = 3;
+            int endId = 4;
             
             IEnumerable<Model> pageItems = _db
                 .Where( 
@@ -32,13 +33,18 @@ namespace template.Controllers
                             && model.Id <= endId 
                 );
 
-            foreach(ModelDto value in pageItems) 
+            foreach(Model value in pageItems) 
             {
-                ret.Items.Append(value);
+                ModelDto(value);
+                //ret.Items.Append(value);
             } 
 
             return ret;
+
+            //return Ok();
         }
+
+        [HttpGet("sas")] 
         public ModelsDetailsDTO GetModelById([FromQuery]int id)
         {
             Model thisModel = _db 

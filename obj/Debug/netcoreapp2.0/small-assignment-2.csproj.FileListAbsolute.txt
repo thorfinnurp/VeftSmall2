@@ -9,3 +9,14 @@ D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignme
 D:\DocumentsLocal\Vefþjónustur\template\bin\Debug\netcoreapp2.0\small-assignment-2.pdb
 D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.dll
 D:\DocumentsLocal\Vefþjónustur\template\obj\Debug\netcoreapp2.0\small-assignment-2.pdb
+E:\HR\VEFT\Small assignment 2\VeftSmall2\bin\Debug\netcoreapp2.0\small-assignment-2.deps.json
+E:\HR\VEFT\Small assignment 2\VeftSmall2\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.json
+E:\HR\VEFT\Small assignment 2\VeftSmall2\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.dev.json
+E:\HR\VEFT\Small assignment 2\VeftSmall2\bin\Debug\netcoreapp2.0\small-assignment-2.dll
+E:\HR\VEFT\Small assignment 2\VeftSmall2\bin\Debug\netcoreapp2.0\small-assignment-2.pdb
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.csprojAssemblyReference.cache
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.csproj.CoreCompileInputs.cache
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfoInputs.cache
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfo.cs
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.dll
+E:\HR\VEFT\Small assignment 2\VeftSmall2\obj\Debug\netcoreapp2.0\small-assignment-2.pdb
