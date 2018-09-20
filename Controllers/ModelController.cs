@@ -6,23 +6,23 @@ using System.Linq;
 
 namespace template.Controllers
 {
-    [Route("api/model")]  
+    [Route("api/models")]  
     //[ApiController]
     public class ModelController : Controller
     {
 
-        private readonly Model _model;
-
-        private List<Model> _db = DataContext.Models;
+        private readonly List<Model> _db = DataContext.Models;
         
         [HttpGet] 
         [Route("")]
-        public Envelope<ModelDto> /*IActionResult*/  GetAllModels(int pageNumber = 1, int pageSize = 10)
+        public IActionResult  GetAllModels(int pageNumber = 1, int pageSize = 10)
         {
-            Envelope<ModelDto> ret = new Envelope<ModelDto>(); 
+            //check if query parameters are OK
 
-            ret.PageNumber = pageNumber;
-            ret.PageSize = pageSize;
+            Envelope<ModelDto> envelope = new Envelope<ModelDto>(); 
+
+            envelope.PageNumber = pageNumber;
+            envelope.PageSize = pageSize;
 
             int startId = 3;
             int endId = 4;
@@ -33,15 +33,25 @@ namespace template.Controllers
                             && model.Id <= endId 
                 );
 
+            List<ModelDto> dtoList = new List<ModelDto>();
             foreach(Model value in pageItems) 
             {
-                ModelDto(value);
-                //ret.Items.Append(value);
+                /*ModelDto dtoValue = new ModelDto();
+                dtoValue.Id = value.Id;
+                dtoValue.Name = value.Name;
+                dtoValue.Race = value.Race;
+                dtoValue.Price = value.Price;*/
+
+                dtoList.Add(new ModelDto() {Id = value.Id, Name = value.Name, Race = value.Race, Price = value.Price });
+                //a.Add(dtoValue);
+                //Enumerable.Append(a, dtoValue);
+                //Enumerable.Append(envelope.Items, dtoValue);
             } 
+            envelope.Items = dtoList;
 
-            return ret;
+            //return envelope;
 
-            //return Ok();
+            return Ok(envelope);
         }
 
         [HttpGet("sas")] 
