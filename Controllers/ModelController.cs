@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using template.Models;
 using template.Data;
 using System.Linq;
+using System;
 
 namespace template.Controllers
 {
     [Route("api/models")]  
-    //[ApiController]
     public class ModelController : Controller
     {
 
@@ -15,17 +15,12 @@ namespace template.Controllers
         
         [HttpGet] 
         [Route("")]
-        public IActionResult  GetAllModels(int pageNumber = 1, int pageSize = 10)
+        public IActionResult GetAllModels([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            //check if query parameters are OK
-
             Envelope<ModelDto> envelope = new Envelope<ModelDto>(); 
 
-            envelope.PageNumber = pageNumber;
-            envelope.PageSize = pageSize;
-
-            int startId = 3;
-            int endId = 4;
+            int startId = 1 + (pageNumber-1) *  pageSize;
+            int endId = startId + pageSize -1;
             
             IEnumerable<Model> pageItems = _db
                 .Where( 
@@ -36,20 +31,13 @@ namespace template.Controllers
             List<ModelDto> dtoList = new List<ModelDto>();
             foreach(Model value in pageItems) 
             {
-                /*ModelDto dtoValue = new ModelDto();
-                dtoValue.Id = value.Id;
-                dtoValue.Name = value.Name;
-                dtoValue.Race = value.Race;
-                dtoValue.Price = value.Price;*/
-
                 dtoList.Add(new ModelDto() {Id = value.Id, Name = value.Name, Race = value.Race, Price = value.Price });
-                //a.Add(dtoValue);
-                //Enumerable.Append(a, dtoValue);
-                //Enumerable.Append(envelope.Items, dtoValue);
             } 
             envelope.Items = dtoList;
 
-            //return envelope;
+            envelope.PageNumber = pageNumber;
+            envelope.PageSize = pageSize;
+            envelope.MaxPages = (int) Math.Ceiling(_db.Count() / (decimal) pageSize);
 
             return Ok(envelope);
         }
