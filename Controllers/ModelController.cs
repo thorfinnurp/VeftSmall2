@@ -42,16 +42,18 @@ namespace template.Controllers
             return Ok(envelope);
         }
 
-        [HttpGet("sas")] 
-        public ModelsDetailsDTO GetModelById([FromQuery]int id)
+        [HttpGet]
+        [Route("{id:int}")] 
+        public IActionResult GetModelById( int id)
         {
-            Model thisModel = _db 
+            Model detailItem = _db 
                             .Where( model => model.Id == id )
                             .Single();
 
-            ModelsDetailsDTO ret = thisModel;
-                                
-            return ret;
+            ModelsDetailsDTO ret = detailItem;
+
+            //Kastar exception ef id finnst ekki (>10). Viljum við höndla það?
+            return Ok(ret);
         } 
 
     }
